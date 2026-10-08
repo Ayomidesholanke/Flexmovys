@@ -1,0 +1,230 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins",sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  background: #f9f9f9;
+  padding-top: 25px;
+
+}
+
+#SignIn {
+  display: flex;
+  width: 77%;
+  height: 40%;
+  margin-bottom: 25px;
+  background: #ffff;
+  border-radius:  0px 0px 52px 0px ;
+  overflow: hidden;
+  padding-bottom: 0px;
+  
+}
+
+/* Left Section */
+.form-section {
+  width: 44%;
+  height: 100%;
+  padding: 40px;
+}
+
+h3 {
+  color: #e2d703;
+  font-size: 18px;
+  padding: 19px;
+  font-weight: bolder;
+  line-height: 2px;
+  
+}
+
+.form-section h2 {
+  padding-left: 16px;
+  font-size: 22px;
+  font-weight: 550;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  color: black;
+}
+
+.form-section p {
+  font-size: 13px;
+  color:rgb(48, 44, 44);
+  padding: 14px;
+  padding-top: 0px;
+  padding-left: 20px;
+  
+
+}
+
+.form-section {
+  
+  padding-left: 18px;
+}
+
+input {
+  border: none;
+  border-bottom: 1px solid #dbd6d6;
+  display: flex;
+  width: 93%;
+  padding-bottom: 16px;
+  padding-top: 25px;
+  padding-left: 0px;
+  margin-left: 25px;
+  font-size: 15px; 
+}
+
+button {
+  background-color: black;
+  width: 400px;
+  height: 45px;
+  color: white;
+  margin-top: 28px;
+  align-items: center;
+  margin-left: 28px;
+  border-radius: 7px;
+  font-size: 16px;
+}
+
+.login-text {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  font-size: 13px;
+}
+
+.line-text {
+  text-align: center;
+  padding-top: -2px;
+}
+
+/* Social Buttons Styling */
+#alternative button {
+  width: 390px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  padding: 18px 60px;
+  margin-bottom: 0px;
+  margin-top: 12px;
+  border: 1px solid #ddd;
+  background: white;
+  color: #060606;
+  cursor: pointer;
+  font-size: 15px;
+  border-radius: 7px;
+  transition: background 0.3s ease;
+}
+
+#alternative a {
+  text-decoration: none;
+}
+
+#alternative button img {
+  margin-right: 15px;
+}
+
+#alternative button:hover {
+  background-color: #f1f1f1;
+}
+
+
+/* Image Section */
+.image-section {
+  width: 58%;
+  height: 750px;
+  position: relative;
+  background: rgb(4, 4, 4);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  border-radius:32px 0px 32px 0px;
+  box-shadow: 4px 0px 4px 4px rgba(145, 142, 142, 0.1);
+}
+
+.image-section img {
+  width: 98%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+  background-color: black;
+  border-radius: 32px;
+  
+  
+}
+
+/* Overlay Text on Right Section */
+.overlay-text {
+  position: absolute;
+  top: 75%;
+  left: 8%;
+  right: 8%;
+  color: #fff;
+  text-align: left;
+}
+
+.overlay-text h2 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.overlay-text p {
+  font-size: 17px;
+  line-height: 1.5;
+  margin-bottom: 0px;
+  margin-left: -12px;
+}
+
+.overlay-text .buttons {
+  display: flex;
+  gap: 3px;
+  margin-left: 40px;
+}
+
+.overlay-text button {
+  background: rgba(7, 7, 7, 0.1);
+  border: 1px solid rgb(160, 156, 156);
+  color: white;
+  width: 190px;
+  height: 40px;
+  padding: 0px 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s;
+}
+
+.overlay-text button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #SignIn {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .form-section,
+  .image-section {
+    width: 100%;
+  }
+
+  .overlay-text {
+    position: static;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .overlay-text .buttons {
+    flex-direction: column;
+  }
+}
