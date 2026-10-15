@@ -1,0 +1,186 @@
+/* =========================================================
+   responsive.css  -  load AFTER Styles.css
+   Overrides the fixed widths / margins that break small screens.
+   ========================================================= */
+
+/* ---------- 1. Global fixes (all screen sizes) ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { max-width: 100%; overflow-x: hidden; }
+img { max-width: 100%; height: auto; }
+
+header { position: relative; }
+.menu-icon { display: none; }                 /* hamburger hidden on desktop */
+
+/* select had a fixed 320px left margin: make it fluid */
+nav ul select { margin-left: clamp(16px, 10vw, 320px); }
+
+/* Movie cards: grid that adapts instead of 4 fixed 300px cards */
+.movies {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 28px;
+}
+.movie-card { width: auto; }
+.movie-card img {
+  display: block;
+  width: 100%;
+  height: auto;                               /* beats the height="430px" attribute */
+  aspect-ratio: 250 / 430;
+  object-fit: cover;
+}
+.tags { flex-wrap: wrap; }
+.tags .quality { margin-right: auto; }
+
+/* Download button: anchor to the image instead of the page */
+/* .promo-card-wrapper { position: relative; }
+.promo-card-wrapper > img { display: block; width: 100%; }
+.download-button { right: 0; top: auto; bottom: 40px; }   tweak to taste */
+
+/* Pricing cards never wider than the screen */
+.plans-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.pricing-container { padding: 0 20px; }
+
+
+/* ---------- 2. Laptops / small desktops (<= 1200px) ---------- */
+@media (max-width: 1200px) {
+  #Hero-section { margin: 60px 5vw; }
+  #Hero-section h1 { padding-right: 20vw; }
+
+  #Up-movies { margin: 100px 5vw 70px; }
+  #Up-movies h2 { margin-right: auto; }
+
+  .container { margin: 0 auto; padding: 0 5vw; }
+
+  .top-rated { padding: 60px 5vw; }
+  .best-tv-series { padding: 10px 5vw; }
+
+  .premium-icon {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 24px;
+    padding: 100px 20px 100px;
+  }
+
+  .footer-links { padding: 60px 5vw; }
+  .footer-links ul { margin-left: 0; }
+  .after-line ul { margin-right: 0; }
+  .social-links { padding-left: 0; }
+  .copyright { gap: 24px; flex-wrap: wrap; justify-content: space-between; }
+  .copyright img { margin-left: 0; }
+}
+
+
+/* ---------- 3. Tablets (<= 992px) ---------- */
+@media (max-width: 992px) {
+
+  /* --- Navbar -> hamburger menu --- */
+  header { padding: 6px 16px; }
+  header .logo { padding: 10px 0; }
+
+  .menu-icon {
+    display: block;
+    background: none;
+    border: 0;
+    color: rgb(249, 244, 244);
+    font-size: 28px;
+    cursor: pointer;
+    padding: 8px;
+  }
+  header .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    padding: 10px 16px 20px;
+    background: rgba(15, 15, 15, 0.97);
+  }
+  header .nav-links.open { display: block; }
+  header .nav-links ul {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+  }
+  header .nav-links ul select { margin: 8px 16px; }
+
+  /* --- Hero --- */
+  #hero-bg { height: auto; min-height: 100vh; background-position: center; }
+  #Hero-section h3 { margin-top: 30px; margin-bottom: 30px; }
+  #Hero-section h1 { font-size: 2.4rem; line-height: 1.2; padding-right: 0; }
+  #about { flex-wrap: wrap; align-items: center; row-gap: 8px; }
+
+  /* --- Upcoming movies header --- */
+  #Up-movies .title { display: flex; flex-direction: column; gap: 16px; }
+  #Up-movies .title #movies { margin-left: 0; }
+  .but { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  /* --- Download section: stack the columns --- */
+  .container { flex-direction: column; }
+  .features-column { margin-left: 0; min-width: 0; }
+  .service-heading { margin-left: 0; margin-top: 20px; }
+  .download-button {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  .download-button span { margin: 0 2px; }
+  .download-icon { margin: 0 0 0 10px; }
+
+  /* --- Top rated buttons wrap --- */
+  #top-rated-btn { flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+
+  /* --- Newsletter --- */
+  .newsletter {
+    height: auto;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px 5vw;
+    background-size: cover;
+  }
+  #text { padding: 0; }
+  form { margin: 0; justify-content: flex-start; }
+  input[type="email"] { width: auto; flex: 1; min-width: 0; }
+}
+
+
+/* ---------- 4. Phones (<= 600px) ---------- */
+@media (max-width: 600px) {
+  #Hero-section h1 { font-size: 1.9rem; }
+  #Hero-section h3 { font-size: 22px; }
+  #Hero-section .play { width: 100%; max-width: 240px; }
+
+  #Up-movies h2,
+  #top-rated-title h4,
+  #best-tv-series h4,
+  #pricing-plan h4 { font-size: 26px; }
+
+  .movies { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .title-year { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .title-year h4 { font-size: 16px; }
+
+  .main-heading { font-size: 24px; }
+  .feature { gap: 14px; }
+  .feature-title { font-size: 22px; }
+  .feature-icon-container { width: 56px; height: 56px; margin-top: 10px; }
+
+  .plan-card { padding: 30px 20px; }
+  .plans-grid { gap: 24px; }
+  .premium-icon { grid-template-columns: 1fr; }
+
+  .after-line ul { flex-wrap: wrap; }
+  .copyright { flex-direction: column; align-items: center; text-align: center; margin: 0 16px; }
+  .newsletter form { flex-direction: column; align-items: stretch; width: 100%; gap: 10px; }
+  .newsletter button { margin-left: 0; width: 100%; }
+}
+
+/* Very small phones: one column of movies */
+@media (max-width: 400px) {
+  .movies { grid-template-columns: 1fr; }
+}
